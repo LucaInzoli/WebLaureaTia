@@ -85,6 +85,43 @@ const effettiQuiz = {
       ],
       { duration: 550, easing: 'ease-out' }
     );
+  },
+  // Mostra una spiegazione geografica quando viene sbagliata
+  // la domanda sul confine tra Francia e Brasile.
+  scopriGuyana() {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'guyana-dialog';
+    dialog.setAttribute('aria-label', 'Curiosità sulla Guyana francese');
+
+    dialog.innerHTML = `
+      <div class="guyana-visual" aria-hidden="true">
+        <div>🇫🇷<small>Francia<br>Europa</small></div>
+        <span>➜</span>
+        <div>🌎<small>Guyana francese<br>Sud America</small></div>
+      </div>
+
+      <h3>La Francia confina col Brasile?! 🤯</h3>
+
+      <p>
+        La <strong>Guyana francese</strong> si trova in
+        Sud America, ma è parte integrante della Francia!
+        Confina con il <strong>Brasile 🇧🇷</strong>,
+        formando il confine terrestre più lungo della Francia.
+      </p>
+
+      <form method="dialog">
+        <button type="submit">Ora è tutto chiaro!</button>
+      </form>
+    `;
+
+    document.body.append(dialog);
+
+    // Rimuove la finestra quando viene chiusa.
+    dialog.addEventListener('close', () => dialog.remove(), {
+      once: true
+    });
+
+    dialog.showModal();
   }
 };
 function planeTransition(callback) {
