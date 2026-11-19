@@ -40,21 +40,11 @@
     "corretta": 2,
     "feedback": {
       "giusta": "Esatto dottore! Un punto a te e uno a Galileo.",
-      "sbagliata": "Stavolta il punto va a Galileo. Nel vuoto i due oggetti cadono con la stessa accelerazione."
+      "sbagliata": "Stavolta il punto va solo a Galileo. Nel vuoto i due oggetti cadono con la stessa accelerazione."
     },
     "effetti": {
       "giusta": "festeggia"
     }
-  },
-  {
-    "domanda": "Quale di queste città è attraversata dal fiume Danubio?",
-    "risposte": [
-      "Budapest",
-      "Praga",
-      "Varsavia",
-      "Madrid"
-    ],
-    "corretta": 0
   },
   {
     "domanda": "In un programma, quale condizione permette a un ciclo while di terminare normalmente?",

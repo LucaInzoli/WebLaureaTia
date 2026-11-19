@@ -1,11 +1,19 @@
 'use strict';
+
+// ── Configurazione ──
+
+// Mostra il pulsante di riavvio usato durante le prove.
 const TEST_MODE = true;
 const $ = id => document.getElementById(id);
 
+// ── Animazioni ed effetti ──
+
 function lanciaCoriandoli() {
+  // Rispetta la preferenza di sistema per il movimento ridotto.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const colori = ['#ad9cff', '#54e6a5', '#ffd166', '#ff7597', '#65d6ff'];
+  // Lo strato copre la finestra e lascia passare i clic.
   const strato = document.createElement('div');
 
   strato.setAttribute('aria-hidden', 'true');
@@ -20,6 +28,7 @@ function lanciaCoriandoli() {
 
   const animazioni = [];
 
+  // Alterna il lato di partenza e varia la traiettoria di ogni coriandolo.
   for (let i = 0; i < 60; i++) {
     const daSinistra = i % 2 === 0;
     const pezzo = document.createElement('span');
@@ -61,9 +70,11 @@ function lanciaCoriandoli() {
     animazioni.push(volo.finished);
   }
 
+  // Rimuove lo strato quando tutti i coriandoli hanno terminato o sono stati annullati.
   Promise.allSettled(animazioni).then(() => strato.remove());
 }
 
+// Aggiungi qui nuovi effetti e usa il loro nome in "effetti" in domande.json.
 const effettiQuiz = {
   festeggia() {
     $('score').animate(
@@ -76,6 +87,28 @@ const effettiQuiz = {
     );
   }
 };
+function planeTransition(callback) {
+  const transition = document.getElementById('plane-transition');
+
+  // Forza il ricalcolo del layout per far ripartire l’animazione CSS.
+  transition.classList.remove('active');
+  void transition.offsetWidth;
+  transition.classList.add('active');
+
+  // Avvia il quiz quando l’ala copre la finestra.
+  setTimeout(() => {
+    callback();
+  }, 1100);
+
+  // Rimuove la classe al termine dell’animazione.
+  setTimeout(() => {
+    transition.classList.remove('active');
+  }, 2200);
+}
+
+// ── Mescolamento e stato del tentativo ──
+
+// Fisher–Yates su una copia, così l’array di partenza mantiene il suo ordine.
 const shuffle = array => {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
@@ -84,10 +117,19 @@ const shuffle = array => {
   }
   return result;
 };
-let questions = [], round = [], position = 0, points = 0, answered = false;
+
+// questions contiene il pool caricato, round contiene le domande del tentativo.
+let questions = [];
+let round = [];
+let position = 0;
+let points = 0;
+let answered = false;
 let selectedAnswer = null;
 let currentOptions = [];
 
+// ── Salvataggio e ripristino ──
+
+// Salva anche la scelta e l’ordine delle opzioni per ricostruire la schermata dopo un reload.
 function saveProgress() {
   localStorage.setItem('quizProgress', JSON.stringify({
     round,
@@ -106,14 +148,16 @@ function restoreProgress() {
   try {
     const state = JSON.parse(saved);
 
-    if (!Array.isArray(state.round) ||
-        state.round.length === 0 ||
-        !Number.isInteger(state.position) ||
-        state.position < 0 ||
-        state.position > state.round.length ||
-        !Number.isInteger(state.points) ||
-        state.points < 0 ||
-        state.points > state.round.length) {
+    if (
+      !Array.isArray(state.round) ||
+      state.round.length === 0 ||
+      !Number.isInteger(state.position) ||
+      state.position < 0 ||
+      state.position > state.round.length ||
+      !Number.isInteger(state.points) ||
+      state.points < 0 ||
+      state.points > state.round.length
+    ) {
       throw new Error('Salvataggio non valido');
     }
 
@@ -124,6 +168,7 @@ function restoreProgress() {
     selectedAnswer = state.selectedAnswer ?? null;
     currentOptions = state.currentOptions || [];
 
+    // Una posizione pari alla lunghezza del round indica un tentativo concluso.
     if (position >= round.length) {
       showResult();
     } else {
@@ -138,18 +183,31 @@ function restoreProgress() {
   }
 }
 
+// ── Schermate e caricamento delle domande ──
+
 function show(screen) {
   ['start-screen', 'quiz-screen', 'end-screen'].forEach(id => $(id).hidden = id !== screen);
 }
 
 async function loadQuestions() {
   try {
-    const response = await fetch('domande.json', {cache: 'no-store'});
+    const response = await fetch('domande.json', { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (!Array.isArray(data) || !data.length) throw new Error('Il file deve contenere un array non vuoto.');
     for (const [i, item] of data.entries()) {
-      if (!item || typeof item.domanda !== 'string' || !item.domanda.trim() || !Array.isArray(item.risposte) || item.risposte.length !== 4 || item.risposte.some(a => typeof a !== 'string' || !a.trim()) || !Number.isInteger(item.corretta) || item.corretta < 0 || item.corretta > 3) {
+      if (
+        !item ||
+        typeof item.domanda !== 'string' ||
+        !item.domanda.trim() ||
+        !Array.isArray(item.risposte) ||
+        item.risposte.length !== 4 ||
+        item.risposte.some(a => typeof a !== 'string' ||
+        !a.trim()) ||
+        !Number.isInteger(item.corretta) ||
+        item.corretta < 0 ||
+        item.corretta > 3
+      ) {
         throw new Error(`Domanda ${i + 1} non valida: servono domanda, quattro risposte e corretta (0–3).`);
       }
     }
@@ -164,6 +222,8 @@ async function loadQuestions() {
     $('start-btn').textContent = 'Quiz non disponibile';
   }
 }
+
+// ── Avvio e visualizzazione della domanda ──
 
 function start() {
   round = shuffle(questions);
@@ -198,6 +258,7 @@ function renderQuestion(restoring = false) {
   const container = $('answers');
   container.replaceChildren();
 
+  // Mantiene l’indice nel JSON per verificare la risposta anche dopo averla mescolata.
   if (!restoring || currentOptions.length !== 4) {
     currentOptions = shuffle(q.risposte.map((text, index) => ({
       text,
@@ -224,12 +285,15 @@ function renderQuestion(restoring = false) {
     container.append(button);
   });
 
+  // Ricostruisce il feedback senza eseguire di nuovo choose e i suoi effetti.
   if (restoring && answered) {
     displayAnswer(selectedAnswer);
   }
 
   saveProgress();
 }
+
+// ── Risposte, feedback ed effetti ──
 
 function choose(index) {
   if (answered) return;
@@ -246,6 +310,8 @@ function choose(index) {
 
   displayAnswer(index);
   saveProgress();
+
+  // L’effetto specifico dell’esito ha precedenza su "sempre", che fa da fallback.
   const esito = index === q.corretta ? 'giusta' : 'sbagliata';
   const nomeEffetto = q.effetti?.[esito] ?? q.effetti?.sempre;
 
@@ -273,6 +339,7 @@ function displayAnswer(index) {
   $('score').textContent = `${points} ${points === 1 ? 'punto' : 'punti'}`;
 
   const esito = correct ? 'giusta' : 'sbagliata';
+  // Usa il messaggio personalizzato per l’esito, se presente nel JSON.
   const messaggio = q.feedback?.[esito];
 
   if (correct) {
@@ -293,6 +360,8 @@ function displayAnswer(index) {
 
   $('next-btn').hidden = false;
 }
+
+// ── Avanzamento e risultato finale ──
 
 function next() {
   if (!answered) return;
@@ -325,8 +394,9 @@ function showResult() {
         ? 'Bel risultato! Hai dimostrato di saperne parecchio.'
         : 'Ogni tentativo è un allenamento. Riprova e migliora il tuo punteggio!';
 }
-//$('start-btn').addEventListener('click', start);
-//$('retry-btn').addEventListener('click', start);
+
+// ── Eventi e inizializzazione ──
+
 $('start-btn').addEventListener('click', () => {
   planeTransition(start);
 });
@@ -346,22 +416,3 @@ $('restart-btn').addEventListener('click', () => {
 
   location.reload();
 });
-
-function planeTransition(callback) {
-  const transition = document.getElementById('plane-transition');
-
-  // Riavvia l'animazione
-  transition.classList.remove('active');
-  void transition.offsetWidth;
-  transition.classList.add('active');
-
-  // Cambia schermata quando l'ala copre il browser
-  setTimeout(() => {
-    callback();
-  }, 1100);
-
-  // Ripulisce l'animazione
-  setTimeout(() => {
-    transition.classList.remove('active');
-  }, 2200);
-}
