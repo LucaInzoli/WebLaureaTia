@@ -177,6 +177,23 @@
     "corretta": 3
   },
   {
+    "domanda": "Con quale Paese la Francia condivide il suo confine terrestre più lungo, considerando anche i territori d'oltremare?",
+    "risposte": [
+      "Spagna",
+      "Germania",
+      "Brasile",
+      "Belgio"
+    ],
+    "corretta": 2,
+    "feedback": {
+      "giusta": "Sei proprio un dottore! Miseriaccia!",
+      "sbagliata": "Incredibile lo so ma esiste sta cosa che si chiama 'Guyana francese' guarda fa arrabbiare anche me."
+    },
+    "effetti": {
+      "sbagliata": "festeggia"
+    }
+  },
+  {
     "domanda": "Come si chiama la celebre legge empirica secondo cui il numero di transistor nei microchip raddoppia circa ogni due anni?",
     "risposte": [
       "Legge di Ohm",
