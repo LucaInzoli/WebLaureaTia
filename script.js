@@ -501,8 +501,12 @@ function displayAnswer(index) {
       .map(i => q.risposte[i])
       .join(', ');
 
+    const testoRisposta = indiciCorretti.length === 1
+      ? `La risposta corretta è: ${risposteGiuste}`
+      : `Le risposte corrette sono: ${risposteGiuste}`;
+
     $('feedback').textContent =
-      `✕ ${messaggio ?? 'Non proprio!'} Le risposte corrette sono: ${risposteGiuste}`;
+      `✕ ${messaggio ?? 'Non proprio!'} ${testoRisposta}`;
   }
 
   $('progress-fill').style.width =
