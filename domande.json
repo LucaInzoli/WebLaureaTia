@@ -201,6 +201,9 @@
     "7 anni",
     "42 anni"
   ],
-  "corretta": 2
-}
+  "corretta": 2,
+  "effetti": {
+    "giusta": "miller"
+  }
+  }
 ]
