@@ -85,7 +85,7 @@
     });
 
     // L'onda arriva, copre la vista e lascia spazio alla rivelazione.
-    programma(() => scena.classList.add('miller-impact'), 3100);
+    //programma(() => scena.classList.add('miller-impact'), 3100);
     programma(() => scena.classList.add('miller-result-visible'), 4100);
     programma(chiudi, 9200);
   }
