@@ -375,7 +375,9 @@ function renderQuestion(restoring = false) {
   // Mostra la mascotte a ogni nuova domanda.
   // Non ripete l'animazione quando si ricarica la pagina.
   if (!restoring) {
-    mostraOlly();
+    if (q.domanda.toLowerCase().includes('olly')) {
+      mostraOlly();
+    }
   }
 
   const q = round[position];
