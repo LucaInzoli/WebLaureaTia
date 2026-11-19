@@ -177,7 +177,7 @@
     "corretta": 2,
     "feedback": {
       "giusta": "Sei proprio un dottore! Miseriaccia!",
-      "sbagliata": "Incredibile lo so ma esiste sta cosa che si chiama 'Guyana francese' guarda fa arrabbiare anche me."
+      "sbagliata": "Guarda sta 'Guyana francese' fa arrabbiare anche me."
     },
     "effetti": {
       "sbagliata": "scopriGuyana"
