@@ -87,7 +87,10 @@
       "6 volte",
       "12 volte"
     ],
-    "corretta": 1
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Ben 16 volte, il calcolo è matematico"
+    }
   },
   {
   "domanda": "Quale capitale europea ospita i Silicon Docks, il polo tecnologico di Google e Meta?",
