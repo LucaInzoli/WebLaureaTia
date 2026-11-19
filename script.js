@@ -353,6 +353,8 @@ function mostraOlly() {
 
   mascotte.classList.add('visible');
 
+  let ollySbloccato = false;
+
   // Dopo 2 secondi, la mascotte scompare
   ollyTimer = setTimeout(() => {
     mascotte.classList.remove('visible');
@@ -364,6 +366,12 @@ function renderQuestion(restoring = false) {
     answered = false;
     selectedAnswer = null;
     currentOptions = [];
+  }
+
+  // Mostra la mascotte a ogni nuova domanda.
+  // Non ripete l'animazione quando si ricarica la pagina.
+  if (!restoring) {
+    mostraOlly();
   }
 
   const q = round[position];
