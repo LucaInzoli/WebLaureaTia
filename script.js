@@ -343,6 +343,7 @@ function start() {
 // =====================================
 
 let ollyTimer = null;
+let ollySbloccato = false;
 
 function mostraOlly() {
   const mascotte = document.getElementById('olly-mascot');
@@ -375,6 +376,11 @@ function renderQuestion(restoring = false) {
   const q = round[position];
 
   if (q.domanda.toLowerCase().includes('festa')) {
+    mostraOlly();
+    ollySbloccato = true;
+  }
+
+  if (!restoring && ollySbloccato && Math.random() < 0.25) {
     mostraOlly();
   }
 
