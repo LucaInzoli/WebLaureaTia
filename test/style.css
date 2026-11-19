@@ -1,0 +1,98 @@
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#eef3ff;background:#0b1120;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -20%,#27385f 0%,#0b1120 65%);display:grid;place-items:center;padding:30px 18px}.shell{width:min(100%,760px)}.brand{font-size:22px;font-weight:800;letter-spacing:-.7px;margin-bottom:30px}.brand-mark{color:#9a86ff;font-size:29px}.brand-sub{font-size:13px;font-weight:500;color:#8d9bb6;letter-spacing:0;margin-left:8px}.panel{background:#151f33;border:1px solid #293650;border-radius:24px;padding:clamp(24px,6vw,52px);box-shadow:0 24px 90px #0005}.eyebrow{color:#ad9cff;font-size:12px;letter-spacing:2px;font-weight:800}h1{font-size:clamp(34px,6vw,54px);line-height:1.1;letter-spacing:-2px;margin:20px 0}h1 span{color:#ad9cff}.lead{color:#aab6ce;font-size:17px;line-height:1.65}.stat-row{display:flex;gap:12px;margin:35px 0}.stat-row>div{flex:1;background:#1c2940;border:1px solid #30415d;border-radius:14px;padding:16px 12px}.stat-row strong{display:block;font-size:26px}.stat-row small{color:#9aa9c3;font-size:11px}.primary{width:100%;border:0;border-radius:13px;background:#947cff;color:#0e1020;font-size:16px;font-weight:800;padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s,transform .2s}.primary:hover:not(:disabled){background:#b3a3ff;transform:translateY(-2px)}.primary:disabled{opacity:.55;cursor:wait}.primary span{font-size:23px}.quiz-meta{display:flex;justify-content:space-between;align-items:center;gap:12px}.score-label{color:#c6d1e5;font-size:13px}.progress{height:7px;border-radius:100px;background:#2a3853;overflow:hidden;margin:22px 0 36px}.progress>div{height:100%;width:0;background:#a18dff;transition:width .3s}h2{font-size:clamp(24px,4vw,34px);letter-spacing:-.8px;line-height:1.35;margin:0 0 30px}.answers{display:grid;gap:12px}.answer{display:flex;align-items:center;text-align:left;gap:16px;border:1px solid #34435e;background:#1d2a41;color:#f1f4fc;padding:16px;border-radius:13px;font:inherit;font-size:16px;cursor:pointer;transition:border .2s,background .2s}.answer:hover:not(:disabled){border-color:#ad9cff;background:#283652}.answer:disabled{cursor:default}.answer .letter{display:grid;place-items:center;flex:none;width:35px;height:35px;border-radius:9px;background:#354460;color:#bfcde7;font-size:13px;font-weight:800}.answer.correct{border-color:#38c991;background:#153e38}.answer.incorrect{border-color:#ef6b7b;background:#462637}.answer.correct .letter{background:#38c991;color:#06251b}.answer.incorrect .letter{background:#ef6b7b;color:#301017}.feedback{min-height:26px;margin:20px 0;color:#d5def0}.next{margin-top:10px}.results{text-align:center}.trophy{font-size:64px;margin-bottom:16px}.result-number{font-size:60px;font-weight:900;color:#ad9cff;margin:20px 0}.results .primary{margin-top:28px}footer{text-align:center;color:#71819e;font-size:12px;margin-top:24px}footer code{color:#a7b7d5}.error{color:#ff9aaa;line-height:1.5}@media(max-width:540px){.brand-sub{display:none}.stat-row{gap:7px}.stat-row>div{padding:12px 8px}.stat-row small{font-size:10px}.panel{border-radius:18px}.answer{font-size:14px}}
+[hidden] {
+  display: none !important;
+}
+.restart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+  margin-top: 20px;
+
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.restart-btn:active {
+  transform: scale(0.97);
+}
+
+.restart-icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.4s ease;
+}
+
+.restart-btn:hover .restart-icon {
+  transform: rotate(-90deg);
+}
+
+.restart-btn[hidden] {
+  display: none !important;
+}
+
+/* Animazione aereo */
+
+
+
+#plane-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.plane {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  left: 50%;
+  top: 50%;
+  overflow: visible;
+
+  transform: translate(-180vw, 100vh)
+             rotate(35deg)
+             scale(0.4);
+}
+
+#plane-transition.active .plane {
+  animation: planeFly 2.2s ease-in-out forwards;
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translate(-180vw, 100vh)
+               rotate(35deg)
+               scale(0.4);
+  }
+
+  100% {
+    transform: translate(180vw, -120vh)
+               rotate(35deg)
+               scale(12);
+  }
+}
