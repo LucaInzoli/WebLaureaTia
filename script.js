@@ -515,10 +515,10 @@ function displayAnswer(index) {
   $('progress-fill').style.width =
     `${(position + 1) / round.length * 100}%`;
 
-  $('next-btn').textContent =
-    position === round.length - 1
-      ? 'Vedi il risultato →'
-      : 'Prossima domanda →';
+  $('next-btn').innerHTML =
+  position === round.length - 1
+    ? 'Vedi il risultato <span>→</span>'
+    : 'Prossima domanda <span>→</span>';
 
   $('next-btn').hidden = false;
 }
