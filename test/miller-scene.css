@@ -202,10 +202,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .miller-scene *, .miller-scene *::before, .miller-scene *::after {
+  /*.miller-scene *, .miller-scene *::before, .miller-scene *::after {
     animation: none !important;
     transition: none !important;
   }
-  .miller-result-visible .miller-world { display: none; }
+  .miller-result-visible .miller-world { display: none; }*/
   .miller-result-visible .miller-result { opacity: 1; transform: none; }
 }
