@@ -370,7 +370,14 @@ function renderQuestion(restoring = false) {
 
   // Mostra la mascotte a ogni nuova domanda.
   // Non ripete l'animazione quando si ricarica la pagina.
-  if (!restoring) {
+  // La domanda di Olly sblocca la mascotte
+  if (q.domanda.toLowerCase().includes('quando è festa')) {
+    ollySbloccato = true;
+  }
+
+  // Dopo lo sblocco, 25% di probabilità
+  // di apparire a ogni nuova domanda
+  if (!restoring && ollySbloccato && Math.random() < 0.25) {
     mostraOlly();
   }
 
