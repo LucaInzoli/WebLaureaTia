@@ -33,7 +33,7 @@
       "sbagliata": "Stavolta il punto va solo a Galileo. Nel vuoto i due oggetti cadono con la stessa accelerazione."
     },
     "effetti": {
-      "sempre": "cadutaLibera"
+      "sbagliata": "cadutaLibera"
     }
   },
   {
