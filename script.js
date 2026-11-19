@@ -338,47 +338,11 @@ function start() {
   renderQuestion();
 }
 
-function mostraOlly() {
-  const mascotte = document.getElementById('olly-mascot');
-
-  if (!mascotte) return;
-
-  // Annulla un'eventuale animazione precedente
-  clearTimeout(ollyTimer);
-
-  mascotte.classList.remove('visible');
-
-  // Riavvia l'animazione di ingresso
-  void mascotte.offsetWidth;
-
-  mascotte.classList.add('visible');
-
-  let ollySbloccato = false;
-
-  // Dopo 2 secondi, la mascotte scompare
-  ollyTimer = setTimeout(() => {
-    mascotte.classList.remove('visible');
-  }, 2000);
-}
-
 function renderQuestion(restoring = false) {
   if (!restoring) {
     answered = false;
     selectedAnswer = null;
     currentOptions = [];
-  }
-
-  // Mostra la mascotte a ogni nuova domanda.
-  // Non ripete l'animazione quando si ricarica la pagina.
-  // La domanda di Olly sblocca la mascotte
-  if (q.domanda.toLowerCase().includes('quando è festa')) {
-    ollySbloccato = true;
-  }
-
-  // Dopo lo sblocco, 25% di probabilità
-  // di apparire a ogni nuova domanda
-  if (!restoring && ollySbloccato && Math.random() < 0.25) {
-    mostraOlly();
   }
 
   const q = round[position];
