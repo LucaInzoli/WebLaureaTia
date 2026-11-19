@@ -120,16 +120,6 @@
     "corretta": 1
   },
   {
-    "domanda": "Scavando un tunnel perfettamente dritto dall'Italia attraverso il centro della Terra, in quale oceano si sbucherebbe?",
-    "risposte": [
-      "Oceano Atlantico",
-      "Oceano Indiano",
-      "Oceano Artico",
-      "Oceano Pacifico"
-    ],
-    "corretta": 3
-  },
-  {
     "domanda": "Vicino a quale città si trova il CERN, il laboratorio dove è nato il World Wide Web?",
     "risposte": [
       "Zurigo",
@@ -138,16 +128,6 @@
       "Berna"
     ],
     "corretta": 1
-  },
-  {
-    "domanda": "Quale Paese europeo possiede il maggior numero di isole al mondo, oltre 260.000?",
-    "risposte": [
-      "Norvegia",
-      "Finlandia",
-      "Grecia",
-      "Svezia"
-    ],
-    "corretta": 3
   },
   {
     "domanda": "Con quale Paese la Francia condivide il suo confine terrestre più lungo, considerando anche i territori d'oltremare?",
