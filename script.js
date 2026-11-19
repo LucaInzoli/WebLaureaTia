@@ -122,6 +122,14 @@ const effettiQuiz = {
     });
 
     dialog.showModal();
+  },
+  // Avvia la scena solo per la risposta corretta di Miller.
+  miller() {
+    const domandaCorrente = position;
+    setTimeout(() => {
+      // Se il giocatore è già passato alla prossima domanda, non interromperlo.
+      if (position === domandaCorrente && answered) avviaScenaMiller();
+    }, 1300);
   }
 };
 function planeTransition(callback) {
