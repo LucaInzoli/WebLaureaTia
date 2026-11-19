@@ -54,7 +54,10 @@
       "FTP",
       "DHCP"
     ],
-    "corretta": 1
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Eh beh, Dottore Non Sbaglia"
+    }
   },
   {
     "domanda": "Se un aereo incontra vento contrario mantenendo invariata la velocità rispetto all’aria, che cosa succede alla velocità rispetto al suolo?",
