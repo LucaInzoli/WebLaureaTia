@@ -130,6 +130,145 @@ const effettiQuiz = {
       // Se il giocatore è già passato alla prossima domanda, non interromperlo.
       if (position === domandaCorrente && answered) avviaScenaMiller();
     }, 1300);
+  },
+  cadutaLibera() {
+
+    // Evita di aprire due animazioni contemporaneamente.
+    document.getElementById('caduta-libera')?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'caduta-libera';
+
+    overlay.innerHTML = `
+      <style>
+        #caduta-libera {
+          position: fixed;
+          inset: 0;
+          z-index: 9998;
+          background: rgba(0, 0, 0, .85);
+          display: grid;
+          place-items: center;
+          font-family: inherit;
+        }
+
+        #caduta-libera .pannello {
+          width: min(420px, 90vw);
+          box-sizing: border-box;
+          background: #171b30;
+          color: white;
+          padding: 25px;
+          border-radius: 18px;
+          text-align: center;
+        }
+
+        #caduta-libera .campo {
+          position: relative;
+          height: 220px;
+          margin: 20px 0;
+          background: #232943;
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        #caduta-libera .sfera {
+          position: absolute;
+          bottom: 160px;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          font-size: 13px;
+          font-weight: bold;
+          color: #101525;
+          animation: caduta-sfera 1.5s .3s ease-in forwards;
+        }
+
+        #caduta-libera .leggera {
+          left: 22%;
+          background: #65d6ff;
+        }
+
+        #caduta-libera .pesante {
+          right: 22%;
+          background: #ffd166;
+        }
+
+        #caduta-libera .suolo {
+          position: absolute;
+          bottom: 9px;
+          left: 5%;
+          width: 90%;
+          height: 3px;
+          background: white;
+          border-radius: 3px;
+        }
+
+        #caduta-libera .risultato {
+          opacity: 0;
+          font-size: 19px;
+          font-weight: bold;
+          color: #54e6a5;
+          animation: compare-risultato .4s 1.8s forwards;
+        }
+
+        #caduta-libera button {
+          margin-top: 15px;
+          padding: 10px 24px;
+          border: 0;
+          border-radius: 9px;
+          background: #ad9cff;
+          color: #101525;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        @keyframes caduta-sfera {
+          to { transform: translateY(148px); }
+        }
+
+        @keyframes compare-risultato {
+          to { opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #caduta-libera .sfera {
+            animation: none;
+            transform: translateY(148px);
+          }
+          #caduta-libera .risultato {
+            animation: none;
+            opacity: 1;
+          }
+        }
+      </style>
+
+      <div class="pannello">
+        <h2>🔬 Esperimento di Galileo</h2>
+        <p>Due masse diverse. Stessa altezza. Nessuna aria.</p>
+
+        <div class="campo">
+          <div class="sfera leggera">1 kg</div>
+          <div class="sfera pesante">10 kg</div>
+          <div class="suolo"></div>
+        </div>
+
+        <div class="risultato">🏁 Arrivano insieme!</div>
+        <p>Nel vuoto la gravità accelera entrambi allo stesso modo.</p>
+
+        <button type="button">Chiudi</button>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Chiusura manuale.
+    overlay.querySelector('button').addEventListener('click', () => {
+      overlay.remove();
+    });
+
+    // Chiusura automatica dopo 5 secondi.
+    setTimeout(() => overlay.remove(), 5000);
   }
 };
 function planeTransition(callback) {
