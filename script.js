@@ -363,7 +363,7 @@ function mostraOlly() {
   // Dopo 2 secondi, la mascotte scompare
   ollyTimer = setTimeout(() => {
     mascotte.classList.remove('visible');
-  }, 2000);
+  }, 4000);
 }
 
 function renderQuestion(restoring = false) {
