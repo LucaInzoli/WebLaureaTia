@@ -228,7 +228,8 @@ function saveProgress() {
     points,
     answered,
     selectedAnswer,
-    currentOptions
+    currentOptions,
+    ollySbloccato
   }));
 }
 
