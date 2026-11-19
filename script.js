@@ -295,9 +295,17 @@ async function loadQuestions() {
         item.risposte.length !== 4 ||
         item.risposte.some(a => typeof a !== 'string' ||
         !a.trim()) ||
-        !Number.isInteger(item.corretta) ||
-        item.corretta < 0 ||
-        item.corretta > 3
+        !(
+          (Number.isInteger(item.corretta) &&
+          item.corretta >= 0 &&
+          item.corretta <= 3) ||
+          (Array.isArray(item.corretta) &&
+          item.corretta.length > 0 &&
+          item.corretta.every(n =>
+            Number.isInteger(n) && n >= 0 && n <= 3
+          ) &&
+          new Set(item.corretta).size === item.corretta.length)
+        )
       ) {
         throw new Error(`Domanda ${i + 1} non valida: servono domanda, quattro risposte e corretta (0–3).`);
       }
@@ -386,6 +394,16 @@ function renderQuestion(restoring = false) {
 
 // ── Risposte, feedback ed effetti ──
 
+// Verifica se l'indice selezionato è tra le risposte corrette.
+// Supporta sia un numero singolo che un array.
+function isCorrectAnswer(question, index) {
+  const corrette = Array.isArray(question.corretta)
+    ? question.corretta
+    : [question.corretta];
+
+  return corrette.includes(index);
+}
+
 function choose(index) {
   if (answered) return;
 
@@ -393,8 +411,9 @@ function choose(index) {
   selectedAnswer = index;
 
   const q = round[position];
+  const correct = isCorrectAnswer(q, index);
 
-  if (index === q.corretta) {
+  if (correct) {
     points++;
     lanciaCoriandoli();
   }
@@ -402,8 +421,8 @@ function choose(index) {
   displayAnswer(index);
   saveProgress();
 
-  // L’effetto specifico dell’esito ha precedenza su "sempre", che fa da fallback.
-  const esito = index === q.corretta ? 'giusta' : 'sbagliata';
+  // Gestisce gli effetti personalizzati della domanda.
+  const esito = correct ? 'giusta' : 'sbagliata';
   const nomeEffetto = q.effetti?.[esito] ?? q.effetti?.sempre;
 
   if (nomeEffetto && Object.hasOwn(effettiQuiz, nomeEffetto)) {
@@ -413,32 +432,40 @@ function choose(index) {
 
 function displayAnswer(index) {
   const q = round[position];
-  const correct = index === q.corretta;
+  const correct = isCorrectAnswer(q, index);
 
   for (const button of $('answers').children) {
     button.disabled = true;
 
     const optionIndex = Number(button.dataset.index);
 
-    if (optionIndex === q.corretta) {
+    if (isCorrectAnswer(q, optionIndex)) {
       button.classList.add('correct');
     } else if (optionIndex === index) {
       button.classList.add('incorrect');
     }
   }
 
-  $('score').textContent = `${points} ${points === 1 ? 'punto' : 'punti'}`;
+  $('score').textContent =
+    `${points} ${points === 1 ? 'punto' : 'punti'}`;
 
   const esito = correct ? 'giusta' : 'sbagliata';
-  // Usa il messaggio personalizzato per l’esito, se presente nel JSON.
   const messaggio = q.feedback?.[esito];
 
   if (correct) {
-    $('feedback').textContent = `✓ ${messaggio ?? 'Esatto! Risposta corretta.'}`;
-  } else {
-    const rispostaGiusta = q.risposte[q.corretta];
     $('feedback').textContent =
-      `✕ ${messaggio ?? 'Non proprio!'} La risposta giusta è: ${rispostaGiusta}`;
+      `✓ ${messaggio ?? 'Esatto! Risposta corretta.'}`;
+  } else {
+    const indiciCorretti = Array.isArray(q.corretta)
+      ? q.corretta
+      : [q.corretta];
+
+    const risposteGiuste = indiciCorretti
+      .map(i => q.risposte[i])
+      .join(', ');
+
+    $('feedback').textContent =
+      `✕ ${messaggio ?? 'Non proprio!'} Le risposte corrette sono: ${risposteGiuste}`;
   }
 
   $('progress-fill').style.width =
