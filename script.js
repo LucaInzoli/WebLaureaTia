@@ -338,11 +338,44 @@ function start() {
   renderQuestion();
 }
 
+// =====================================
+// MASCOTTE CANTANTE
+// =====================================
+
+let ollyTimer = null;
+
+function mostraOlly() {
+  const mascotte = document.getElementById('olly-mascot');
+
+  if (!mascotte) return;
+
+  // Annulla un'eventuale animazione precedente
+  clearTimeout(ollyTimer);
+
+  mascotte.classList.remove('visible');
+
+  // Riavvia l'animazione di ingresso
+  void mascotte.offsetWidth;
+
+  mascotte.classList.add('visible');
+
+  // Dopo 2 secondi, la mascotte scompare
+  ollyTimer = setTimeout(() => {
+    mascotte.classList.remove('visible');
+  }, 2000);
+}
+
 function renderQuestion(restoring = false) {
   if (!restoring) {
     answered = false;
     selectedAnswer = null;
     currentOptions = [];
+  }
+
+  // Mostra la mascotte a ogni nuova domanda.
+  // Non ripete l'animazione quando si ricarica la pagina.
+  if (!restoring) {
+    mostraOlly();
   }
 
   const q = round[position];
