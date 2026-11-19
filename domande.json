@@ -60,12 +60,12 @@
     }
   },
   {
-    "domanda": "Se un aereo incontra vento contrario mantenendo invariata la velocità rispetto all’aria, che cosa succede alla velocità rispetto al suolo?",
+    "domanda": "Sei a bordo di un aereo e il pilota annuncia che incontrerete un forte vento contrario. Pur mantenendo la stessa velocità rispetto all'aria, cosa succederà al vostro viaggio?",
     "risposte": [
-      "Aumenta",
-      "Rimane sempre identica",
-      "Diminuisce",
-      "Diventa necessariamente zero"
+    "Il viaggio durerà meno perché l'aereo genera maggiore portanza",
+    "Il tempo di volo rimarrà invariato perché la velocità dell'aereo è costante",
+    "Il viaggio durerà più a lungo perché l'aereo avanza più lentamente rispetto al suolo",
+    "Il pilota dovrà necessariamente ridurre la quota per mantenere la velocità"
     ],
     "corretta": 2
   },
