@@ -49,7 +49,7 @@ sudo -u caddy test -r /var/web/domande.json && echo "JSON leggibile da Caddy"
 
 ## 2. Indirizzo pubblico, HTTPS e Tailscale
 
-Per il tentativo pubblico è stato usato `lurpi.duckdns.org`. Le porte WAN indicate erano **33080** e **33443**. Nei log il DNS funzionava, ma le verifiche ACME HTTP-01 e TLS-ALPN-01 andavano in timeout. Per queste verifiche l’autorità contatta rispettivamente la porta pubblica 80 o 443. Visitare il sito su una porta personalizzata e ottenere un certificato pubblico sono due prove distinte. L’emissione finale del certificato DuckDNS e la delega del dominio alternativo discusso non risultano confermate.
+Per il tentativo pubblico è stato usato un dns dinamico fornito da duckdns.org. Nei log il DNS funzionava, ma le verifiche ACME HTTP-01 e TLS-ALPN-01 andavano in timeout. Per queste verifiche l’autorità contatta rispettivamente la porta pubblica 80 o 443. Visitare il sito su una porta personalizzata e ottenere un certificato pubblico sono due prove distinte. L’emissione finale del certificato DuckDNS e la delega del dominio alternativo discusso non risultano confermate.
 
 Per l’accesso privato controlla sul Pi:
 
