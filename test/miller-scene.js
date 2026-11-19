@@ -31,7 +31,7 @@
         <div class="miller-wave"><div class="miller-foam"></div></div>
         <div class="miller-scene-title">
           <span>MISSIONE MILLER</span>
-          <strong>Qui il tempo non perdona.</strong>
+          <strong>Qui il tempo nooon perdonaaaa.</strong>
         </div>
       </div>
       <div class="miller-flash" aria-hidden="true"></div>
@@ -85,7 +85,7 @@
     });
 
     // L'onda arriva, copre la vista e lascia spazio alla rivelazione.
-    //programma(() => scena.classList.add('miller-impact'), 3100);
+    programma(() => scena.classList.add('miller-impact'), 3100);
     programma(() => scena.classList.add('miller-result-visible'), 4100);
     programma(chiudi, 9200);
   }
