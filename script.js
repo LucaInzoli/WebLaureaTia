@@ -561,7 +561,8 @@ $('start-btn').addEventListener('click', () => {
 });
 
 $('retry-btn').addEventListener('click', () => {
-  planeTransition(start);
+  localStorage.removeItem('quizProgress');
+  location.reload();
 });
 $('next-btn').addEventListener('click', next);
 loadQuestions();
