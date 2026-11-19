@@ -374,6 +374,10 @@ function renderQuestion(restoring = false) {
 
   const q = round[position];
 
+  if (q.domanda.toLowerCase().includes('festa')) {
+    mostraOlly();
+  }
+
   $('counter').textContent = `DOMANDA ${position + 1} DI ${round.length}`;
   $('score').textContent = `${points} ${points === 1 ? 'punto' : 'punti'}`;
   $('progress-fill').style.width = `${position / round.length * 100}%`;
