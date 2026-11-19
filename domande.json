@@ -188,5 +188,15 @@
   "effetti": {
     "giusta": "miller"
   }
+  },
+  {
+  "domanda": "Quando è festa?",
+  "risposte": [
+    "Ma pure quando",
+    "Non dimenticarti",
+    "Anche quando",
+    "Non lo sanno gli scienziati"
+  ],
+  "corretta": [0, 1, 2, 3]
   }
 ]
