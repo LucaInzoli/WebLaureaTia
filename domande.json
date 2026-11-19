@@ -1,0 +1,229 @@
+[
+  {
+    "domanda": "Qual è la capitale dell'Australia?",
+    "risposte": [
+      "Sydney",
+      "Melbourne",
+      "Canberra",
+      "Perth"
+    ],
+    "corretta": 2
+  },
+  {
+    "domanda": "Quale di questi componenti serve principalmente a conservare i dati anche quando il computer è spento?",
+    "risposte": [
+      "SSD",
+      "RAM",
+      "Cache della CPU",
+      "Registro della CPU"
+    ],
+    "corretta": 0
+  },
+  {
+    "domanda": "Perché durante decollo e atterraggio si chiede ai passeggeri di tenere le cinture allacciate?",
+    "risposte": [
+      "Per migliorare l’equilibrio aerodinamico dell’aereo",
+      "Per evitare interferenze con gli strumenti",
+      "Per mantenere costante la pressione in cabina",
+      "Per ridurre il rischio di lesioni durante movimenti improvvisi"
+    ],
+    "corretta": 3
+  },
+  {
+    "domanda": "In assenza di resistenza dell’aria, due oggetti di massa diversa lasciati cadere dalla stessa altezza nello stesso istante che cosa fanno?",
+    "risposte": [
+      "Quello più pesante arriva prima",
+      "Quello più leggero arriva prima",
+      "Arrivano insieme",
+      "La risposta dipende dalla loro densità"
+    ],
+    "corretta": 2,
+    "feedback": {
+      "giusta": "Esatto dottore! Un punto a te e uno a Galileo.",
+      "sbagliata": "Stavolta il punto va a Galileo. Nel vuoto i due oggetti cadono con la stessa accelerazione."
+    },
+    "effetti": {
+      "giusta": "festeggia"
+    }
+  },
+  {
+    "domanda": "Quale di queste città è attraversata dal fiume Danubio?",
+    "risposte": [
+      "Budapest",
+      "Praga",
+      "Varsavia",
+      "Madrid"
+    ],
+    "corretta": 0
+  },
+  {
+    "domanda": "In un programma, quale condizione permette a un ciclo while di terminare normalmente?",
+    "risposte": [
+      "Il ciclo supera dieci iterazioni",
+      "La variabile di controllo è sempre intera",
+      "La condizione rimane vera",
+      "La condizione diventa falsa"
+    ],
+    "corretta": 3
+  },
+  {
+    "domanda": "Perché molti aerei di linea volano a quote elevate durante la crociera?",
+    "risposte": [
+      "Perché a quelle quote la gravità è nulla",
+      "Perché l’aria meno densa può ridurre la resistenza aerodinamica",
+      "Perché i motori non consumano combustibile in quota",
+      "Perché non esiste vento ad alta quota"
+    ],
+    "corretta": 1
+  },
+  {
+    "domanda": "Un’auto passa da 0 a 72 km/h in 10 secondi, con accelerazione costante. Qual è l’accelerazione media?",
+    "risposte": [
+      "2 m/s²",
+      "7,2 m/s²",
+      "10 m/s²",
+      "20 m/s²"
+    ],
+    "corretta": 0
+  },
+  {
+    "domanda": "Quale di questi Paesi non ha alcuno sbocco sul mare?",
+    "risposte": [
+      "Croazia",
+      "Albania",
+      "Montenegro",
+      "Serbia"
+    ],
+    "corretta": 3
+  },
+  {
+    "domanda": "Quale protocollo traduce normalmente un nome di dominio come esempio.it nel relativo indirizzo IP?",
+    "risposte": [
+      "SMTP",
+      "DNS",
+      "FTP",
+      "DHCP"
+    ],
+    "corretta": 1
+  },
+  {
+    "domanda": "Se un aereo incontra vento contrario mantenendo invariata la velocità rispetto all’aria, che cosa succede alla velocità rispetto al suolo?",
+    "risposte": [
+      "Aumenta",
+      "Rimane sempre identica",
+      "Diminuisce",
+      "Diventa necessariamente zero"
+    ],
+    "corretta": 2
+  },
+  {
+    "domanda": "Se un circuito elettrico è alimentato a 12 V e attraversato da una corrente di 2 A, qual è la potenza elettrica assorbita?",
+    "risposte": [
+      "6 W",
+      "12 W",
+      "14 W",
+      "24 W"
+    ],
+    "corretta": 3
+  },
+  {
+    "domanda": "Quale di questi Stati confina sia con la Cina sia con la Russia?",
+    "risposte": [
+      "Uzbekistan",
+      "Mongolia",
+      "Nepal",
+      "Kirghizistan"
+    ],
+    "corretta": 1
+  },
+  {
+    "domanda": "In un programma C, che cosa indica l’espressione sizeof(char), secondo lo standard del linguaggio?",
+    "risposte": [
+      "Sempre 8 bit",
+      "La dimensione del puntatore a char",
+      "Sempre 1 byte C",
+      "La lunghezza di una stringa"
+    ],
+    "corretta": 2
+  },
+  {
+    "domanda": "Su un aereo, quale fenomeno descrive il buffeting che può comparire in prossimità dello stallo?",
+    "risposte": [
+      "Vibrazioni causate da flusso d’aria separato e turbolento",
+      "L’aumento della pressione di cabina durante una discesa",
+      "L’arresto improvviso dei sistemi di navigazione",
+      "La rotazione delle ruote dopo il decollo"
+    ],
+    "corretta": 0
+  },
+  {
+    "domanda": "Chi scrisse il romanzo Il nome della rosa?",
+    "risposte": [
+      "Italo Calvino",
+      "Primo Levi",
+      "Alberto Moravia",
+      "Umberto Eco"
+    ],
+    "corretta": 3
+  },
+  {
+    "domanda": "Se la velocità di un oggetto triplica mentre la massa rimane costante, di quanto aumenta la sua energia cinetica?",
+    "risposte": [
+      "3 volte",
+      "9 volte",
+      "6 volte",
+      "12 volte"
+    ],
+    "corretta": 1
+  },
+  {
+    "domanda": "Quale capitale europea ospita i Silicon Docks, il polo tecnologico di Google e Meta?",
+    "risposte": ["Amsterdam", "Dublino", "Londra", "Berlino"],
+    "corretta": 1
+  },
+  {
+    "domanda": "Quale isola nordica sfrutta energia geotermica e clima freddo per alimentare e raffreddare grandi data center?",
+    "risposte": ["Groenlandia", "Islanda", "Svalbard", "Irlanda"],
+    "corretta": 1
+  },
+  {
+    "domanda": "Quale stretto tra Spagna e Marocco rappresenta un passaggio strategico per i cavi internet sottomarini?",
+    "risposte": ["Stretto di Messina", "Stretto del Bosforo", "Stretto di Gibilterra", "Stretto di Hormuz"],
+    "corretta": 2
+  },
+  {
+    "domanda": "Quale isola asiatica è uno dei principali centri mondiali per la produzione di semiconduttori, con una quota dominante nel mercato delle fonderie di chip?",
+    "risposte": ["Giappone", "Singapore", "Taiwan", "Filippine"],
+    "corretta": 2
+  },
+  {
+    "domanda": "A quale piccolo Stato dell'Oceania appartiene il dominio internet .tv?",
+    "risposte": ["Tonga", "Tuvalu", "Vanuatu", "Figi"],
+    "corretta": 1
+  },
+  {
+    "domanda": "Scavando un tunnel perfettamente dritto dall'Italia attraverso il centro della Terra, in quale oceano si sbucherebbe?",
+    "risposte": ["Oceano Atlantico", "Oceano Indiano", "Oceano Artico", "Oceano Pacifico"],
+    "corretta": 3
+  },
+  {
+    "domanda": "Vicino a quale città si trova il CERN, il laboratorio dove è nato il World Wide Web?",
+    "risposte": ["Zurigo", "Ginevra", "Losanna", "Berna"],
+    "corretta": 1
+  },
+  {
+    "domanda": "Quale Paese europeo possiede il maggior numero di isole al mondo, oltre 260.000?",
+    "risposte": ["Norvegia", "Finlandia", "Grecia", "Svezia"],
+    "corretta": 3
+  },
+  {
+    "domanda": "Con quale Paese la Francia condivide il suo confine terrestre più lungo, considerando anche i territori d'oltremare?",
+    "risposte": ["Spagna", "Germania", "Brasile", "Belgio"],
+    "corretta": 2
+  },
+  {
+    "domanda": "Come si chiama la celebre legge empirica secondo cui il numero di transistor nei microchip raddoppia circa ogni due anni?",
+    "risposte": ["Legge di Ohm", "Legge di Moore", "Legge di Metcalfe", "Legge di Murphy"],
+    "corretta": 1
+  }
+]

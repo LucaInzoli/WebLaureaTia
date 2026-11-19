@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Quizettino carino bellino</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="brand"><span class="brand-mark"></span> <span class="brand-sub"> </span></header>
+    <section class="panel" id="start-screen">
+      <div class="eyebrow">Ultimo esame di laurea ( poi siamo apposto dai )</div>
+      <h1>La commissione ti ha promosso. Ora <span>tocca a noi</span></h1>
+      <p class="lead"></p>
+      <div class="stat-row"><div><strong id="total-questions">—</strong><small>domande difficilissime</small></div><div><strong>1</strong><small>solo e unico tentativo</small></div></div>
+      <p class="error" id="load-error" role="alert" hidden></p>
+      <button class="primary" id="start-btn" disabled>Caricamento domande… <span>→</span></button>
+    </section>
+    <section class="panel" id="quiz-screen" hidden>
+      <div class="quiz-meta"><span class="eyebrow" id="counter">DOMANDA 1 DI 5</span><span class="score-label" id="score">0 punti</span></div>
+      <div class="progress"><div id="progress-fill"></div></div>
+      <h2 id="question-text"></h2>
+      <div class="answers" id="answers"></div>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      <button class="primary next" id="next-btn" hidden>Prossima domanda <span>→</span></button>
+      <button id="restart-btn" class="restart-btn" type="button">
+      <span class="restart-icon">↻</span>  Ricomincia il quiz porcod</button>
+    </section>
+    <section class="panel results" id="end-screen" hidden>
+      <div class="trophy">🏆</div><div class="eyebrow">QUIZ COMPLETATO</div>
+      <h1>Ottimo lavoro!</h1>
+      <div class="result-number" id="final-score">0 / 0</div>
+      <p class="lead" id="final-message"></p>
+      <button class="primary" id="retry-btn" type="button">Riprova <span>↻</span></button>
+    </section>
+  </main>
+    <div id="plane-transition" aria-hidden="true">
+      <svg class="plane" viewBox="0 0 600 600"
+          xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wing-gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#cbd5e1"/>
+            <stop offset="100%" stop-color="#64748b"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ala sinistra -->
+        <path d="M285 270 L45 390 L20 450 L290 350 Z"
+              fill="url(#wing-gradient)" stroke="#64748b" stroke-width="3"/>
+
+        <!-- Ala destra -->
+        <path d="M315 270 L555 390 L580 450 L310 350 Z"
+              fill="url(#wing-gradient)" stroke="#64748b" stroke-width="3"/>
+
+        <!-- Stabilizzatori posteriori -->
+        <path d="M290 455 L185 510 L180 535 L300 500
+                L420 535 L415 510 L310 455 Z"
+              fill="#cbd5e1" stroke="#64748b" stroke-width="3"/>
+
+        <!-- Fusoliera -->
+        <path d="M300 45
+                C275 65 280 150 285 260
+                L290 475
+                Q300 545 310 475
+                L315 260
+                C320 150 325 65 300 45 Z"
+              fill="#f1f5f9" stroke="#64748b" stroke-width="3"/>
+
+        <!-- Cabina -->
+        <path d="M288 105 Q300 80 312 105 L311 140 L289 140 Z"
+              fill="#334155"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
