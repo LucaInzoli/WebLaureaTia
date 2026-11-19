@@ -383,9 +383,7 @@ function renderQuestion(restoring = false) {
   if (q.domanda.toLowerCase().includes('festa')) {
     mostraOlly();
     ollySbloccato = true;
-  }
-
-  if (!restoring && ollySbloccato && Math.random() < 0.25) {
+  } else if (!restoring && ollySbloccato && Math.random() < 0.3) {
     mostraOlly();
   }
 
