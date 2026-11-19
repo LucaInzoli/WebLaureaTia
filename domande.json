@@ -193,10 +193,13 @@
   "domanda": "Quando è festa?",
   "risposte": [
     "Ma pure quando",
-    "Non dimenticarti",
+    "Non ne parlano i giornali",
     "Anche quando",
     "Non lo sanno gli scienziati"
   ],
-  "corretta": [0, 1, 2, 3]
+  "corretta": [0, 1, 2, 3],
+  "feedback": {
+      "giusta": "MA DOVE TE NE VAI??"
+    }
   }
 ]
