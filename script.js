@@ -9,6 +9,16 @@ const $ = id => document.getElementById(id);
 // ── Animazioni ed effetti ──
 
 function lanciaCoriandoli() {
+
+  $('score').animate(
+      [
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.8)', color: '#22c55e' },
+        { transform: 'scale(1)' }
+      ],
+      { duration: 550, easing: 'ease-out' }
+    );
+
   // Rispetta la preferenza di sistema per il movimento ridotto.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
