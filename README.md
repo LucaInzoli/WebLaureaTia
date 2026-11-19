@@ -2,7 +2,7 @@
 
 > La commissione ti ha promosso. Ora tocca a noi.
 
-Un ultimo esame per la festa di laurea di Mattia. Si passa dalla geografia all’informatica, dalla fisica agli aerei. Ogni domanda ha quattro risposte e ogni risposta esatta vale un punto e una pioggia di coriandoli.
+Un ultimo esame per la festa di laurea di Mattia. Ogni domanda ha quattro risposte e ogni risposta esatta vale un punto e una pioggia di coriandoli.
 
 ## Come si gioca
 
