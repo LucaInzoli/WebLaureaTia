@@ -5,7 +5,7 @@
       "SSD",
       "RAM",
       "Cache della CPU",
-      "Registro della CPU"
+      "Palazzo della memoria"
     ],
     "corretta": 0
   },
@@ -13,7 +13,7 @@
     "domanda": "Perché durante decollo e atterraggio si chiede ai passeggeri di tenere le cinture allacciate?",
     "risposte": [
       "Per migliorare l’equilibrio aerodinamico dell’aereo",
-      "Per evitare interferenze con gli strumenti",
+      "Per fare le foto di gruppo con un accessorio in comune",
       "Per mantenere costante la pressione in cabina",
       "Per ridurre il rischio di lesioni durante movimenti improvvisi"
     ],
@@ -35,16 +35,6 @@
     "effetti": {
       "giusta": "festeggia"
     }
-  },
-  {
-    "domanda": "In un programma, quale condizione permette a un ciclo while di terminare normalmente?",
-    "risposte": [
-      "Il ciclo supera dieci iterazioni",
-      "La variabile di controllo è sempre intera",
-      "La condizione rimane vera",
-      "La condizione diventa falsa"
-    ],
-    "corretta": 3
   },
   {
     "domanda": "Perché molti aerei di linea volano a quote elevate durante la crociera?",
