@@ -192,5 +192,15 @@
       "Legge di Murphy"
     ],
     "corretta": 1
-  }
+  },
+  {
+  "domanda": "Immagina di essere catapultato nel mondo di Interstellar: se trascorressi un'ora sul pianeta di Miller a studiare per un esame, quanto tempo sarebbe passato nel frattempo sulla Terra?",
+  "risposte": [
+    "1 mese",
+    "1 minuto ( eh magari )",
+    "7 anni",
+    "70 anni"
+  ],
+  "corretta": 2
+}
 ]
