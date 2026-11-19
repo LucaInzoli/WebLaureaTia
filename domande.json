@@ -69,7 +69,7 @@
   {
     "domanda": "Se un circuito elettrico è alimentato a 12 V e attraversato da una corrente di 2 A, qual è la potenza elettrica assorbita?",
     "risposte": [
-      "6 W",
+      "6 Kw",
       "12 W",
       "14 W",
       "24 W"
@@ -85,16 +85,6 @@
       "La rotazione delle ruote dopo il decollo"
     ],
     "corretta": 0
-  },
-  {
-    "domanda": "Chi scrisse il romanzo Il nome della rosa?",
-    "risposte": [
-      "Italo Calvino",
-      "Primo Levi",
-      "Alberto Moravia",
-      "Umberto Eco"
-    ],
-    "corretta": 3
   },
   {
     "domanda": "Se la velocità di un oggetto triplica mentre la massa rimane costante, di quanto aumenta la sua energia cinetica?",
