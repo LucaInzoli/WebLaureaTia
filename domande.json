@@ -1,15 +1,5 @@
 [
   {
-    "domanda": "Qual è la capitale dell'Australia?",
-    "risposte": [
-      "Sydney",
-      "Melbourne",
-      "Canberra",
-      "Perth"
-    ],
-    "corretta": 2
-  },
-  {
     "domanda": "Quale di questi componenti serve principalmente a conservare i dati anche quando il computer è spento?",
     "risposte": [
       "SSD",
@@ -65,16 +55,6 @@
       "Perché non esiste vento ad alta quota"
     ],
     "corretta": 1
-  },
-  {
-    "domanda": "Quale di questi Paesi non ha alcuno sbocco sul mare?",
-    "risposte": [
-      "Croazia",
-      "Albania",
-      "Montenegro",
-      "Serbia"
-    ],
-    "corretta": 3
   },
   {
     "domanda": "Quale protocollo traduce normalmente un nome di dominio come esempio.it nel relativo indirizzo IP?",
