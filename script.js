@@ -259,6 +259,7 @@ function restoreProgress() {
     answered = state.answered === true;
     selectedAnswer = state.selectedAnswer ?? null;
     currentOptions = state.currentOptions || [];
+    ollySbloccato = state.ollySbloccato === true;
 
     // Una posizione pari alla lunghezza del round indica un tentativo concluso.
     if (position >= round.length) {
@@ -332,6 +333,9 @@ function start() {
   answered = false;
   selectedAnswer = null;
   currentOptions = [];
+
+  // Blocca nuovamente Olly a ogni nuova partita
+  ollySbloccato = false;
 
   saveProgress();
 
