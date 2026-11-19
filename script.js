@@ -3,7 +3,7 @@
 // ── Configurazione ──
 
 // Mostra il pulsante di riavvio usato durante le prove.
-const TEST_MODE = false;
+const TEST_MODE = true;
 const $ = id => document.getElementById(id);
 
 // ── Animazioni ed effetti ──
