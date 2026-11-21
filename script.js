@@ -260,8 +260,10 @@ let currentOptions = [];
 
 // Salva anche la scelta e l’ordine delle opzioni per ricostruire la schermata dopo un reload.
 function saveProgress() {
+  // Le partite iniziate con la vecchia versione hanno ancora il round completo.
+  const datiRound = roundOrder === null ? { round } : { roundOrder };
   localStorage.setItem(progressKey, JSON.stringify({
-    round,
+    datiRound,
     position,
     points,
     answered,
