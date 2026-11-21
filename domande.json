@@ -230,5 +230,19 @@
       "giusta": "Complimenti dottore! Hai appena dimostrato di conoscere un limite dell'IA meglio di quanto l'IA conosca i propri errori.",
       "sbagliata": "Un'IA può generare risposte plausibili senza verificarne necessariamente la veridicità. Si chiamano allucinazioni."
     }
+  },
+  {
+    "domanda": "In Interstellar, TARS possiede un parametro regolabile dedicato all'onestà. Perché un robot potrebbe non essere programmato per dire sempre tutta la verità?",
+    "risposte": [
+      "Perché non possiede una memoria affidabile",
+      "Perché può essere utile adattare le informazioni alla situazione",
+      "Perché un'intelligenza artificiale non può distinguere il vero dal falso",
+      "Perché comunicare informazioni false consuma meno energia"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Esatto! Come TARS insegna, essere sinceri non significa necessariamente dire tutto, sempre. Il modo in cui comunichiamo una verità può essere importante quanto la verità stessa!",
+      "sbagliata": "TARS ha un parametro di onestà regolabile perché una sincerità assoluta non è sempre la scelta più utile. A volte è importante valutare quali informazioni comunicare e come farlo, senza compromettere la fiducia."
+    }
   }
 ]
