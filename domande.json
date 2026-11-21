@@ -174,5 +174,61 @@
   "feedback": {
       "giusta": "MA DOVE TE NE VAI?? LA FESTA SIAMO NOI"
     }
+  },
+    {
+    "domanda": "Un utente utilizza una password lunga, complessa e unica per accedere al proprio account. In quale situazione potrebbe comunque essere compromesso?",
+    "risposte": [
+      "Se utilizza una rete Wi-Fi con una connessione lenta",
+      "Se un malintenzionato riesce a rubare un cookie di sessione valido",
+      "Se il dispositivo viene riavviato senza effettuare il logout",
+      "Se accede allo stesso account da due dispositivi differenti"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Accesso autorizzato, dottore! Hai capito che anche una password perfetta non protegge una sessione già autenticata.",
+      "sbagliata": "Password da Nobel, sicurezza da rivedere! Un cookie di sessione rubato può permettere a un malintenzionato di accedere senza conoscere la password."
+    }
+  },
+  {
+    "domanda": "Due computer sono collegati allo stesso switch, ma il router che fornisce accesso a Internet viene scollegato. Entrambi hanno già indirizzi IP compatibili sulla stessa sottorete. Cosa succede?",
+    "risposte": [
+      "Non possono più comunicare perché manca il router",
+      "Possono continuare a comunicare direttamente attraverso lo switch",
+      "Possono comunicare soltanto utilizzando indirizzi IPv6",
+      "Devono necessariamente utilizzare un server DNS pubblico"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Dottore delle reti! Internet può anche sparire, ma una LAN funzionante non si arrende così facilmente.",
+      "sbagliata": "Hai staccato Internet, mica lo switch! Due dispositivi sulla stessa sottorete possono comunicare attraverso lo switch senza bisogno del router."
+    }
+  },
+  {
+    "domanda": "Devi cercare un nome in un elenco di un milione di nomi già ordinati alfabeticamente. Quale strategia permette di trovarlo più efficientemente?",
+    "risposte": [
+      "Controllare i nomi uno alla volta partendo dall'inizio",
+      "Controllare prima il nome centrale e dimezzare progressivamente la ricerca",
+      "Controllare soltanto i nomi che iniziano con una vocale",
+      "Scegliere nomi casuali finché non trovi quello desiderato"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Algoritmo approvato, dottore! Con la ricerca binaria bastano al massimo circa 20 confronti per cercare tra un milione di nomi ordinati.",
+      "sbagliata": "Un milione di nomi e tu vuoi passarli tutti? La ricerca binaria parte dal centro e dimezza ogni volta le possibilità. Bastano al massimo circa 20 confronti!"
+    }
+  },
+  {
+    "domanda": "Perché un modello di intelligenza artificiale può fornire una risposta molto convincente ma completamente sbagliata?",
+    "risposte": [
+      "Perché ogni risposta viene scelta casualmente da un database",
+      "Perché genera contenuti sulla base di schemi appresi, senza garantire che ogni affermazione sia vera",
+      "Perché i modelli linguistici non possono utilizzare informazioni reali",
+      "Perché è programmato per inserire intenzionalmente errori in ogni conversazione"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Complimenti dottore! Hai appena dimostrato di conoscere un limite dell'IA meglio di quanto l'IA conosca i propri errori.",
+      "sbagliata": "Te l'avrei spiegato io, ma poi magari mi inventavo qualcosa! Un'IA può generare risposte plausibili senza verificarne necessariamente la veridicità. Si chiamano allucinazioni."
+    }
   }
 ]
