@@ -72,7 +72,56 @@ body {
 @keyframes word-in { from { opacity: .3; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
 .bottom-bar { display: flex; justify-content: center; gap: clamp(16px, 4vw, 44px); flex-wrap: wrap; color: #8d9bb6; font-size: 13px; }
-.bottom-bar > span { display: inline-flex; align-items: center; gap: 7px; }
+/* Pulsanti di controllo del gioco */
+.bottom-bar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  color: #8d9bb6;
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Effetto al passaggio del mouse */
+.bottom-bar button:hover {
+  background: #1d2a41;
+  border-color: #947cff;
+  color: #eef3ff;
+  transform: translateY(-2px);
+}
+
+/* Effetto alla pressione */
+.bottom-bar button:active {
+  transform: scale(0.95);
+}
+
+/* Evidenziazione con Tab */
+.bottom-bar button:focus-visible {
+  outline: 2px solid #ad9cff;
+  outline-offset: 3px;
+}
+
+/* Tastino all'interno del pulsante */
+.bottom-bar button:hover kbd {
+  background: #947cff;
+  border-color: #947cff;
+  color: #0e1020;
+}
 kbd { display: inline-grid; place-items: center; min-width: 27px; height: 27px; padding: 0 6px; border: 1px solid #354460; border-radius: 7px; background: #1d2a41; color: #c6d1e5; font: inherit; font-weight: 800; }
 footer { margin-top: 20px; color: #71819e; text-align: center; font-size: 12px; }
 
