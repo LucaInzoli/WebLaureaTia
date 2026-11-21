@@ -669,7 +669,7 @@ if (isBonus) {
 
 loadQuestions();
 
-$('restart-btn').hidden = !TEST_MODE;
+$('restart-btn').hidden = !(TEST_MODE || isBonus);
 $('restart-btn').addEventListener('click', () => {
   console.log('RESTART CLICCATO');
   if (!confirm('Vuoi davvero ricominciare il quiz?')) return;
