@@ -480,3 +480,13 @@ to { opacity: 1; }
     display: none;
   }
 }
+
+#end-screen.con-saluto {
+  /* Lascia spazio sotto i pulsanti per le teste degli avatar. */
+  padding-bottom: clamp(80px, 19vw, 140px);
+
+  background-image: url("sfondo-amici.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: min(100%, 656px) auto;
+}

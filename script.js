@@ -692,9 +692,10 @@ function showResult() {
   const percentage = puntiTotali / domandeTotali * 100;
 
   if (!isBonus) {
-    $('final-message').textContent = messaggiPrimoRound[points];
-    return;
-  }
+  $('final-message').textContent = messaggiPrimoRound[points];
+  $('end-screen').classList.add('con-saluto');
+  return;
+}
 
   $('final-message').textContent =
     percentage === 100
