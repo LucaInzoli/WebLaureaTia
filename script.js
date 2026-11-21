@@ -10,6 +10,39 @@ const isBonus = new URLSearchParams(window.location.search).has('bonus');
 const questionsFile = isBonus ? 'domande-extra.json' : 'domande.json';
 const progressKey = isBonus ? 'quizBonusProgress' : 'quizProgress';
 
+let puntiPrincipali = 0;
+let numeroDomandePrincipali = 0;
+
+if (isBonus) {
+  try {
+    const main = JSON.parse(localStorage.getItem('quizProgress'));
+
+    if (
+      !Array.isArray(main?.round) ||
+      main.round.length === 0 ||
+      main.position !== main.round.length ||
+      !Number.isInteger(main.points) ||
+      main.points < 0 ||
+      main.points > main.round.length
+    ) {
+      throw new Error('Quiz principale da completare');
+    }
+
+    puntiPrincipali = main.points;
+    numeroDomandePrincipali = main.round.length;
+  } catch {
+    // Se apre direttamente ?bonus, lo riporta al quiz principale.
+    const url = new URL(window.location.href);
+    url.searchParams.delete('bonus');
+    window.location.replace(url);
+  }
+}
+
+function testoPunteggio() {
+  const totale = puntiPrincipali + points;
+  return `${totale} ${totale === 1 ? 'punto' : 'punti'}`;
+}
+
 // ── Animazioni ed effetti ──
 
 function lanciaCoriandoli() {
