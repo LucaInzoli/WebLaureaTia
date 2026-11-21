@@ -300,19 +300,20 @@ function restoreProgress() {
     }
 
     if (
-      !Array.isArray(state.round) ||
-      state.round.length === 0 ||
+      !Array.isArray(roundSalvato) ||
+      roundSalvato.length === 0 ||
       !Number.isInteger(state.position) ||
       state.position < 0 ||
-      state.position > state.round.length ||
+      state.position > roundSalvato.length ||
       !Number.isInteger(state.points) ||
       state.points < 0 ||
-      state.points > state.round.length
+      state.points > roundSalvato.length
     ) {
       throw new Error('Salvataggio non valido');
     }
 
-    round = state.round;
+    round = roundSalvato;
+    roundOrder = ordineSalvato;
     position = state.position;
     points = state.points;
     answered = state.answered === true;
