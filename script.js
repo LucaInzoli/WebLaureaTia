@@ -395,6 +395,21 @@ async function loadQuestions() {
 
 function start() {
   roundOrder = shuffle(questions.map((_, index) => index));
+
+  if (!isBonus) {
+    const posizioneOlly = roundOrder.findIndex(
+      index => questions[index].domanda === 'Quando è festa?'
+    );
+
+    // Le prime 8 domande occupano gli indici da 0 a 7.
+    if (posizioneOlly >= 8) {
+      const destinazione = Math.floor(Math.random() * 8);
+
+      [roundOrder[destinazione], roundOrder[posizioneOlly]] =
+        [roundOrder[posizioneOlly], roundOrder[destinazione]];
+    }
+  }
+
   round = roundOrder.map(index => questions[index]);
   position = 0;
   points = 0;
@@ -448,7 +463,7 @@ function renderQuestion(restoring = false) {
 
   const q = round[position];
 
-  if (q.domanda.toLowerCase().includes('festa')) {
+  if (!isBonus && q.domanda === 'Quando è festa?') {
     mostraOlly();
     ollySbloccato = true;
   } else if (!restoring && ollySbloccato && Math.random() < 0.3) {
