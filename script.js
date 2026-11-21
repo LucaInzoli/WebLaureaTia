@@ -226,7 +226,7 @@ let currentOptions = [];
 
 // Salva anche la scelta e l’ordine delle opzioni per ricostruire la schermata dopo un reload.
 function saveProgress() {
-  localStorage.setItem('quizProgress', JSON.stringify({
+  localStorage.setItem(progressKey, JSON.stringify({
     round,
     position,
     points,
@@ -238,7 +238,7 @@ function saveProgress() {
 }
 
 function restoreProgress() {
-  const saved = localStorage.getItem('quizProgress');
+  const saved = localStorage.getItem(progressKey);
   if (!saved) return false;
 
   try {
@@ -275,7 +275,7 @@ function restoreProgress() {
 
     return true;
   } catch (error) {
-    localStorage.removeItem('quizProgress');
+    localStorage.removeItem(progressKey);
     return false;
   }
 }
@@ -288,7 +288,7 @@ function show(screen) {
 
 async function loadQuestions() {
   try {
-    const response = await fetch('domande.json', { cache: 'no-store' });
+    const response = await fetch(questionsFile, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (!Array.isArray(data) || !data.length) throw new Error('Il file deve contenere un array non vuoto.');
@@ -320,7 +320,10 @@ async function loadQuestions() {
     $('total-questions').textContent = questions.length;
     $('start-btn').disabled = false;
     $('start-btn').innerHTML = 'Iniziamo!<span>→</span>';
-    restoreProgress();
+    const restored = restoreProgress();
+    if (isBonus && !restored) {
+      start();
+    }
   } catch (err) {
     $('load-error').hidden = false;
     $('load-error').textContent = `Impossibile caricare domande.json: ${err.message}. Apri il sito tramite un server web, non con file://.`;
@@ -568,7 +571,7 @@ $('start-btn').addEventListener('click', () => {
 });
 
 $('retry-btn').addEventListener('click', () => {
-  localStorage.removeItem('quizProgress');
+  localStorage.removeItem(progressKey);
   location.reload();
 });
 $('next-btn').addEventListener('click', next);
@@ -579,7 +582,7 @@ $('restart-btn').addEventListener('click', () => {
   console.log('RESTART CLICCATO');
   if (!confirm('Vuoi davvero ricominciare il quiz?')) return;
 
-  localStorage.removeItem('quizProgress');
+  localStorage.removeItem(progressKey);
 
   location.reload();
 });
