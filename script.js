@@ -517,6 +517,32 @@ function isCorrectAnswer(question, index) {
   return corrette.includes(index);
 }
 
+function lanciaTemporale() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.getElementById('quiz-temporale')?.remove();
+
+  const temporale = document.createElement('div');
+  temporale.id = 'quiz-temporale';
+  temporale.setAttribute('aria-hidden', 'true');
+
+  // Il fulmine cade ogni volta in un punto leggermente diverso.
+  temporale.style.setProperty('--posizione-fulmine', `${20 + Math.random() * 60}%`);
+
+  temporale.innerHTML = `
+    <svg viewBox="0 0 180 300" aria-hidden="true" focusable="false">
+      <path class="fulmine-principale"
+            d="M108 -8 L75 67 L91 62 L56 141 L77 134 L39 225 L53 219 L20 294" />
+      <path class="fulmine-ramo"
+            d="M66 119 L101 139 L96 151 L132 179
+               M55 187 L31 199 L34 211 L12 228" />
+    </svg>
+  `;
+
+  document.body.append(temporale);
+  setTimeout(() => temporale.remove(), 650);
+}
+
 function choose(index) {
   if (answered) return;
 
@@ -529,6 +555,8 @@ function choose(index) {
   if (correct) {
     points++;
     lanciaCoriandoli();
+  } else {
+    lanciaTemporale();
   }
 
   displayAnswer(index);
