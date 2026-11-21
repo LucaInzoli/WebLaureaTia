@@ -1,0 +1,16 @@
+[
+  {
+    "domanda": "Mattia salva la tesi sul portatile e ne fa una copia su una chiavetta. Poi modifica solo il file sul portatile. Cosa troverà sulla chiavetta?",
+    "risposte": [
+      "L’ultima versione, appena ricollega la chiavetta",
+      "La versione che aveva copiato prima delle modifiche",
+      "Una richiesta di unire le due versioni quando apre il file",
+      "Entrambe le versioni, con la data nel nome"
+    ],
+    "corretta": 1,
+    "feedback": {
+      "giusta": "Esatto, dottore! Sulla chiavetta è rimasta la tesi di prima.",
+      "sbagliata": "La chiavetta conserva il file com’era al momento della copia."
+    }
+  }
+]
