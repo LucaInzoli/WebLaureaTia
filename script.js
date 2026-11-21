@@ -326,7 +326,7 @@ async function loadQuestions() {
     }
   } catch (err) {
     $('load-error').hidden = false;
-    $('load-error').textContent = `Impossibile caricare domande.json: ${err.message}. Apri il sito tramite un server web, non con file://.`;
+    $('load-error').textContent = `Impossibile caricare ${questionsFile}: ${err.message}. Apri il sito tramite un server web, non con file://.`;
     $('start-btn').textContent = 'Quiz non disponibile';
   }
 }
@@ -575,6 +575,27 @@ $('retry-btn').addEventListener('click', () => {
   location.reload();
 });
 $('next-btn').addEventListener('click', next);
+
+$('bonus-btn').addEventListener('click', () => {
+  const url = new URL(window.location.href);
+
+  if (isBonus) {
+    url.searchParams.delete('bonus');
+  } else {
+    url.searchParams.set('bonus', '1');
+  }
+
+  window.location.assign(url);
+});
+
+if (isBonus) {
+  document.querySelector('#end-screen .eyebrow').textContent =
+    'ROUND BONUS COMPLETATO';
+
+  $('bonus-btn').innerHTML =
+    'Torna al risultato delle 19 domande <span>→</span>';
+}
+
 loadQuestions();
 
 $('restart-btn').hidden = !TEST_MODE;
