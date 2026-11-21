@@ -736,7 +736,7 @@ if (isBonus) {
     'ROUND BONUS COMPLETATO';
 
   $('bonus-btn').innerHTML =
-    'Torna al risultato delle 19 domande <span>→</span>';
+    'Torna al risultato del primo round <span>→</span>';
 }
 
 loadQuestions();
