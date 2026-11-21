@@ -657,6 +657,30 @@ function next() {
   }
 }
 
+const messaggiPrimoRound = [
+  /*  0 */ 'Mattia, domanda di servizio: il foglio con le risposte è rimasto sull’Endurance?',
+  /*  1 */ 'Un punto. Sappiamo esattamente quale risposta incorniciare.',
+  /*  2 */ 'Due punti. Se qualcuno chiede com’è andata, parti da quelle due.',
+  /*  3 */ 'Tre risposte giuste. Abbiamo abbastanza materiale per un trailer.',
+  /*  4 */ 'Quattro punti. Al tavolo dei parenti qualcuno ha già detto «io lo sapevo».',
+  /*  5 */ 'Cinque punti. Batti il cinque, dottore: almeno questo ce lo siamo guadagnato.',
+  /*  6 */ 'Sei punti. La commissione accetta ricorsi, soprattutto se accompagnati da una fetta di torta.',
+  /*  7 */ 'Sette punti. Sul pianeta di Miller sarebbero comunque sette, ma avresti un’ottima scusa per il ritardo.',
+  /*  8 */ 'Otto punti. Olly è passato a suggerire o si è limitato a cantare?',
+  /*  9 */ 'Nove punti. Te ne mancava uno per arrivare a metà. Chi è che ti ha fatto cambiare risposta?',
+  /* 10 */ 'Dieci su venti. Pareggio perfetto tra te e la commissione. Si va ai supplementari?',
+  /* 11 */ 'Undici a nove per Mattia. Vittoria di misura, il mister si dichiara soddisfatto.',
+  /* 12 */ 'Dodici punti. Il comandante Mattia ha spento il segnale delle cinture: potete tornare al buffet.',
+  /* 13 */ 'Tredici punti. Il brindisi porta fortuna, ma queste le hai azzeccate tu.',
+  /* 14 */ 'Quattordici punti. Per le altre sei apriamo un ticket dopo la festa.',
+  /* 15 */ 'Quindici punti. Le cinque che mancano sono già finite nella sezione «sviluppi futuri» della tesi.',
+  /* 16 */ 'Sedici punti. Quattro errori, giusto per far partire i fulmini che abbiamo programmato con tanta cura.',
+  /* 17 */ 'Diciassette punti. Le tre che hai sbagliato le giriamo a chi ha gridato «facile!» dal fondo.',
+  /* 18 */ 'Diciotto punti. Se indovini chi ha scritto quelle due domande, puoi interrogarlo tu.',
+  /* 19 */ 'Diciannove su venti. Scommetto che stai già pensando a quell’unica risposta.',
+  /* 20 */ 'Venti su venti. Mattia, da questo momento la commissione sei tu. Vacci piano con noi.'
+];
+
 function showResult() {
   show('end-screen');
 
