@@ -249,6 +249,7 @@ const shuffle = array => {
 // questions contiene il pool caricato, round contiene le domande del tentativo.
 let questions = [];
 let round = [];
+let roundOrder = null;
 let position = 0;
 let points = 0;
 let answered = false;
