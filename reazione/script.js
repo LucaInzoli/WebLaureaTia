@@ -139,3 +139,35 @@ document.addEventListener("keydown", (event) => {
 
 mostraParola();
 aggiornaPunteggio();
+
+// =====================================================
+// CONTROLLI CLICCABILI
+// =====================================================
+
+// Parola precedente
+document.getElementById("prev-btn").addEventListener("click", () => {
+  if (posizione > 0) {
+    posizione--;
+    mostraParola();
+  }
+});
+
+// Parola successiva
+document.getElementById("next-btn").addEventListener("click", () => {
+  if (posizione < parole.length - 1) {
+    posizione++;
+    mostraParola();
+  }
+});
+
+// Aggiunge un punto
+document.getElementById("plus-btn").addEventListener("click", () => {
+  punteggio++;
+  aggiornaPunteggio();
+});
+
+// Toglie un punto
+document.getElementById("minus-btn").addEventListener("click", () => {
+  punteggio = Math.max(0, punteggio - 1);
+  aggiornaPunteggio();
+});
