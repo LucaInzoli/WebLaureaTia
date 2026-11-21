@@ -266,7 +266,7 @@ function saveProgress() {
   // Le partite iniziate con la vecchia versione hanno ancora il round completo.
   const datiRound = roundOrder === null ? { round } : { roundOrder };
   localStorage.setItem(progressKey, JSON.stringify({
-    datiRound,
+    ...datiRound,
     position,
     points,
     answered,
@@ -283,8 +283,9 @@ function restoreProgress() {
   try {
     const state = JSON.parse(saved);
 
-    const ordineSalvato = state.roundOrder ?? null;
-    let roundSalvato = state.round;
+    const dati = state.datiRound ?? state;
+    const ordineSalvato = dati.roundOrder ?? null;
+    let roundSalvato = dati.round;
 
     if (ordineSalvato !== null) {
       const ordineValido =
