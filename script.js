@@ -280,6 +280,25 @@ function restoreProgress() {
   try {
     const state = JSON.parse(saved);
 
+    const ordineSalvato = state.roundOrder ?? null;
+    let roundSalvato = state.round;
+
+    if (ordineSalvato !== null) {
+      const ordineValido =
+        Array.isArray(ordineSalvato) &&
+        ordineSalvato.length > 0 &&
+        ordineSalvato.every(index =>
+          Number.isInteger(index) && index >= 0 && index < questions.length
+        ) &&
+        new Set(ordineSalvato).size === ordineSalvato.length;
+
+      if (!ordineValido) {
+        throw new Error('Ordine delle domande non valido');
+      }
+
+      roundSalvato = ordineSalvato.map(index => questions[index]);
+    }
+
     if (
       !Array.isArray(state.round) ||
       state.round.length === 0 ||
