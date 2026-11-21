@@ -368,3 +368,53 @@ to { opacity: 1; }
     transition: none;
   }
 }
+
+#restart-dialog {
+  width: min(92vw, 420px);
+  padding: clamp(22px, 5vw, 32px);
+}
+
+#restart-dialog h2 {
+  margin: 0 0 22px;
+  font-size: clamp(24px, 5vw, 30px);
+}
+
+#restart-dialog form {
+  display: grid;
+  gap: 10px;
+}
+
+#restart-dialog button {
+  min-height: 46px;
+}
+
+/* «Solo le domande extra» eredita il viola del quiz. */
+#restart-dialog button[value="bonus"]:hover {
+  background: #b3a3ff;
+}
+
+/* «Tutto il quiz, da zero» richiama il rosso del riavvio. */
+#restart-dialog button[value="tutto"] {
+  background: #462637;
+  border: 1px solid #ef6b7b;
+  color: #ffd5dc;
+}
+
+#restart-dialog button[value="tutto"]:hover {
+  background: #5b2e42;
+}
+
+/* «Annulla» resta visibile come scelta secondaria. */
+#restart-dialog button[value="annulla"] {
+  background: transparent;
+  color: #c6d1e5;
+}
+
+#restart-dialog button[value="annulla"]:hover {
+  background: #1d2a41;
+}
+
+#restart-dialog button:focus-visible {
+  outline: 2px solid #ad9cff;
+  outline-offset: 3px;
+}
