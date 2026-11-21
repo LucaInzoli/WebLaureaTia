@@ -584,9 +584,12 @@ function next() {
 function showResult() {
   show('end-screen');
 
-  $('final-score').textContent = `${points} / ${round.length}`;
+  const puntiTotali = puntiPrincipali + points;
+  const domandeTotali = numeroDomandePrincipali + round.length;
 
-  const percentage = points / round.length * 100;
+  $('final-score').textContent = `${puntiTotali} / ${domandeTotali}`;
+
+  const percentage = puntiTotali / domandeTotali * 100;
 
   $('final-message').textContent =
     percentage === 100
