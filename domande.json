@@ -228,7 +228,7 @@
     "corretta": 1,
     "feedback": {
       "giusta": "Complimenti dottore! Hai appena dimostrato di conoscere un limite dell'IA meglio di quanto l'IA conosca i propri errori.",
-      "sbagliata": "Te l'avrei spiegato io, ma poi magari mi inventavo qualcosa! Un'IA può generare risposte plausibili senza verificarne necessariamente la veridicità. Si chiamano allucinazioni."
+      "sbagliata": "Un'IA può generare risposte plausibili senza verificarne necessariamente la veridicità. Si chiamano allucinazioni."
     }
   }
 ]
