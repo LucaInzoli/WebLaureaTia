@@ -691,6 +691,11 @@ function showResult() {
 
   const percentage = puntiTotali / domandeTotali * 100;
 
+  if (!isBonus) {
+    $('final-message').textContent = messaggiPrimoRound[points];
+    return;
+  }
+
   $('final-message').textContent =
     percentage === 100
       ? 'Perfetto! Hai risposto correttamente a tutte le domande.'
