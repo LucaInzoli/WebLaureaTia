@@ -607,6 +607,9 @@ $('start-btn').addEventListener('click', () => {
 
 $('retry-btn').addEventListener('click', () => {
   localStorage.removeItem(progressKey);
+  if (!isBonus) {
+    localStorage.removeItem('quizBonusProgress');
+  }
   location.reload();
 });
 $('next-btn').addEventListener('click', next);
@@ -639,6 +642,10 @@ $('restart-btn').addEventListener('click', () => {
   if (!confirm('Vuoi davvero ricominciare il quiz?')) return;
 
   localStorage.removeItem(progressKey);
+
+  if (!isBonus) {
+    localStorage.removeItem('quizBonusProgress');
+  }
 
   location.reload();
 });
