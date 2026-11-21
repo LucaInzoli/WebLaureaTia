@@ -17,6 +17,9 @@ if (isBonus) {
   try {
     const main = JSON.parse(localStorage.getItem('quizProgress'));
 
+    const dati = main?.datiRound ?? main;
+    const roundPrincipale = dati?.roundOrder ?? dati?.round;
+
     if (
       !Array.isArray(main?.round) ||
       main.round.length === 0 ||
