@@ -670,15 +670,35 @@ if (isBonus) {
 loadQuestions();
 
 $('restart-btn').hidden = !(TEST_MODE || isBonus);
+const restartDialog = $('restart-dialog');
+
+function ricominciaTutto() {
+  localStorage.removeItem('quizProgress');
+  localStorage.removeItem('quizBonusProgress');
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete('bonus');
+  window.location.replace(url);
+}
+
 $('restart-btn').addEventListener('click', () => {
-  console.log('RESTART CLICCATO');
-  if (!confirm('Vuoi davvero ricominciare il quiz?')) return;
-
-  localStorage.removeItem(progressKey);
-
-  if (!isBonus) {
-    localStorage.removeItem('quizBonusProgress');
+  if (isBonus) {
+    restartDialog.returnValue = '';
+    restartDialog.showModal();
+    return;
   }
 
-  location.reload();
+  // Durante i test del round principale basta la conferma classica.
+  if (confirm('Vuoi ricominciare tutto il quiz da zero?')) {
+    ricominciaTutto();
+  }
+});
+
+restartDialog.addEventListener('close', () => {
+  if (restartDialog.returnValue === 'bonus') {
+    localStorage.removeItem('quizBonusProgress');
+    window.location.reload();
+  } else if (restartDialog.returnValue === 'tutto') {
+    ricominciaTutto();
+  }
 });
