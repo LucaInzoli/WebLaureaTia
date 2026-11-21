@@ -21,18 +21,18 @@ if (isBonus) {
     const roundPrincipale = dati?.roundOrder ?? dati?.round;
 
     if (
-      !Array.isArray(main?.round) ||
-      main.round.length === 0 ||
-      main.position !== main.round.length ||
+      !Array.isArray(roundPrincipale) ||
+      roundPrincipale.length === 0 ||
+      main.position !== roundPrincipale.length ||
       !Number.isInteger(main.points) ||
       main.points < 0 ||
-      main.points > main.round.length
+      main.points > roundPrincipale.length
     ) {
       throw new Error('Quiz principale da completare');
     }
 
     puntiPrincipali = main.points;
-    numeroDomandePrincipali = main.round.length;
+    numeroDomandePrincipali = roundPrincipale.length;
   } catch {
     // Se apre direttamente ?bonus, lo riporta al quiz principale.
     const url = new URL(window.location.href);
