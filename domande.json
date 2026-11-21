@@ -186,7 +186,7 @@
     "corretta": 1,
     "feedback": {
       "giusta": "Accesso autorizzato, dottore! Hai capito che anche una password perfetta non protegge una sessione già autenticata.",
-      "sbagliata": "Password da Nobel, sicurezza da rivedere! Un cookie di sessione rubato può permettere a un malintenzionato di accedere senza conoscere la password."
+      "sbagliata": "Password da Nobel, sicurezza da rivedere! Il cookie di sessione rappresenta, per un sito, la prova che hai già effettuato l'accesso, non fartelo rubare!!"
     }
   },
   {
