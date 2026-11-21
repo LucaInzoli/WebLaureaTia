@@ -428,7 +428,7 @@ function renderQuestion(restoring = false) {
   }
 
   $('counter').textContent = `DOMANDA ${position + 1} DI ${round.length}`;
-  $('score').textContent = `${points} ${points === 1 ? 'punto' : 'punti'}`;
+  $('score').textContent = testoPunteggio();
   $('progress-fill').style.width = `${position / round.length * 100}%`;
   $('question-text').textContent = q.domanda;
   $('feedback').textContent = '';
@@ -526,8 +526,7 @@ function displayAnswer(index) {
     }
   }
 
-  $('score').textContent =
-    `${points} ${points === 1 ? 'punto' : 'punti'}`;
+  $('score').textContent = testoPunteggio();
 
   const esito = correct ? 'giusta' : 'sbagliata';
   const messaggio = q.feedback?.[esito];
