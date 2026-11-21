@@ -427,7 +427,12 @@ function renderQuestion(restoring = false) {
     mostraOlly();
   }
 
-  $('counter').textContent = `DOMANDA ${position + 1} DI ${round.length}`;
+  $('counter').style.visibility = isBonus ? 'hidden' : 'visible';
+  $('progress-fill').parentElement.hidden = isBonus;
+
+  if (!isBonus) {
+    $('counter').textContent = `DOMANDA ${position + 1} DI ${round.length}`;
+  }
   $('score').textContent = testoPunteggio();
   $('progress-fill').style.width = `${position / round.length * 100}%`;
   $('question-text').textContent = q.domanda;
