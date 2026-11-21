@@ -6,6 +6,10 @@
 const TEST_MODE = false;
 const $ = id => document.getElementById(id);
 
+const isBonus = new URLSearchParams(window.location.search).has('bonus');
+const questionsFile = isBonus ? 'domande-extra.json' : 'domande.json';
+const progressKey = isBonus ? 'quizBonusProgress' : 'quizProgress';
+
 // ── Animazioni ed effetti ──
 
 function lanciaCoriandoli() {
