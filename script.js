@@ -368,7 +368,8 @@ async function loadQuestions() {
 // ── Avvio e visualizzazione della domanda ──
 
 function start() {
-  round = shuffle(questions);
+  roundOrder = shuffle(questions.map((_, index) => index));
+  round = roundOrder.map(index => questions[index]);
   position = 0;
   points = 0;
   answered = false;
