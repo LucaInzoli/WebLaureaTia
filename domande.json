@@ -200,7 +200,7 @@
     "corretta": 1,
     "feedback": {
       "giusta": "Dottore delle reti! Internet può anche sparire, ma una LAN funzionante non si arrende così facilmente.",
-      "sbagliata": "Hai staccato Internet, mica lo switch! Due dispositivi sulla stessa sottorete possono comunicare attraverso lo switch senza bisogno del router."
+      "sbagliata": "Immagina un'isola, se crolla l'unico ponte verso la terraferma, gli abitanti restano isolati, ma possono ancora visitarsi tra loro."
     }
   },
   {
