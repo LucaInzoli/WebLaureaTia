@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <title>Reazione a Catena</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="brand">
+      <span class="brand-mark">✦</span> Reazione a Catena
+      <span class="brand-sub">Edizione speciale Mattia</span>
+    </header>
+
+    <section class="panel" aria-label="Schermata del gioco">
+      <div class="quiz-meta">
+        <span class="eyebrow" id="counter">PAROLA 1 DI 8</span>
+        <div class="score-label">PUNTEGGIO <strong id="score">0</strong></div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><div id="progress-fill"></div></div>
+
+      <div class="word-area" aria-live="polite" aria-atomic="true">
+        <p class="word-label">LA PAROLA È...</p>
+        <h1 id="word">—</h1>
+      </div>
+
+      <div class="bottom-bar">
+        <span><kbd>←</kbd> Precedente</span>
+        <span><kbd>→</kbd> Successiva</span>
+        <span class="score-hint"><kbd>+</kbd> / <kbd>−</kbd> Punti</span>
+      </div>
+    </section>
+
+    <footer>La commissione è pronta. Voi un po' meno.</footer>
+  </main>
+</body>
+</html>

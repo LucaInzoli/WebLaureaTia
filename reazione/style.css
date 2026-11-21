@@ -1,0 +1,91 @@
+/* Stessi colori e atmosfera del quiz di Mattia */
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #eef3ff;
+  background: #0b1120;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% -20%, #27385f 0%, #0b1120 65%);
+}
+
+.shell { width: min(100%, 1120px); }
+
+.brand {
+  margin: 0 0 24px;
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+.brand-mark { color: #9a86ff; font-size: 28px; }
+.brand-sub { margin-left: 12px; color: #8d9bb6; font-size: 13px; font-weight: 500; letter-spacing: 0; }
+
+.panel {
+  padding: clamp(24px, 4vw, 52px);
+  border: 1px solid #293650;
+  border-radius: 24px;
+  background: #151f33;
+  box-shadow: 0 24px 90px #0005;
+}
+
+.quiz-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.eyebrow { font-size: 14px; letter-spacing: 2px; font-weight: 800; color: #ad9cff; }
+.score-label { display: flex; gap: 13px; align-items: center; color: #c6d1e5; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+.score-label strong { min-width: 40px; font-size: clamp(28px, 3vw, 38px); color: #ad9cff; text-align: right; letter-spacing: -1px; }
+
+.progress { height: 7px; margin: 24px 0 0; border-radius: 100px; overflow: hidden; background: #2a3853; }
+.progress > div { height: 100%; width: 0; background: #a18dff; transition: width .3s ease; }
+
+.word-area {
+  min-height: clamp(260px, 51vh, 540px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 0;
+}
+
+.word-label { margin: 0 0 24px; color: #9aa9c3; letter-spacing: 3px; font-size: clamp(12px, 1.5vw, 17px); font-weight: 800; }
+#word {
+  width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(52px, 10vw, 130px);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -.055em;
+  color: #eef3ff;
+  text-transform: uppercase;
+  text-shadow: 0 0 70px #947cff25;
+}
+#word.appear { animation: word-in .26s ease both; }
+@keyframes word-in { from { opacity: .3; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.bottom-bar { display: flex; justify-content: center; gap: clamp(16px, 4vw, 44px); flex-wrap: wrap; color: #8d9bb6; font-size: 13px; }
+.bottom-bar > span { display: inline-flex; align-items: center; gap: 7px; }
+kbd { display: inline-grid; place-items: center; min-width: 27px; height: 27px; padding: 0 6px; border: 1px solid #354460; border-radius: 7px; background: #1d2a41; color: #c6d1e5; font: inherit; font-weight: 800; }
+footer { margin-top: 20px; color: #71819e; text-align: center; font-size: 12px; }
+
+@media (max-width: 560px) {
+  body { padding: 14px; }
+  .panel { border-radius: 18px; }
+  .brand-sub { display: none; }
+  .score-label { font-size: 11px; gap: 7px; }
+  .word-area { min-height: 45vh; }
+  #word { font-size: clamp(42px, 12vw, 70px); }
+  .bottom-bar { gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress > div { transition: none; }
+  #word.appear { animation: none; }
+}
